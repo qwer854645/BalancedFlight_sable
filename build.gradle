@@ -145,9 +145,8 @@ dependencies {
 }
 
 jar {
-    from('LICENSE', 'NOTICE') {
-        into ''
-    }
+    from('LICENSE')
+    from('NOTICE')
 
     manifest {
         attributes([
@@ -166,7 +165,7 @@ publishing {
     tasks.publish.dependsOn 'build'
     publications {
         mavenJava(MavenPublication) {
-            artifact jar
+            artifact(tasks.named('jar'))
         }
     }
 

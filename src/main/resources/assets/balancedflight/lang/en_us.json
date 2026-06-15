@@ -7,6 +7,7 @@
   "tooltip.balancedflight.flight_anchor": "Allows flight in a 25 block radius. Only works in the overworld.",
   "tooltip.balancedflight.flight_anchor.rpm": "Allows flight around it based on how much RPM is powering it.",
   "tooltip.balancedflight.flight_anchor.overworld": "Only works in the overworld.",
+  "tooltip.balancedflight.flight_anchor.sable": "Works on Sable physics structures and sub-levels when Sable is installed.",
 
   "tooltip.balancedflight.ascended_flight_ring": "An incredibly dense golden ring, and yet, it allows flight anywhere.",
   "tooltip.balancedflight.ascended_flight_ring.detail": "An incredibly dense golden ring. Despite its weight, it allows you to fly anywhere (Angel Ring).",

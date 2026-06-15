@@ -1,5 +1,6 @@
 package com.vice.balancedflight.content.flightAnchor;
 
+import com.vice.balancedflight.foundation.compat.SableCompat;
 import com.vice.balancedflight.foundation.render.AnimatedBlockItem;
 import com.vice.balancedflight.AllGeckoRenderers;
 import net.minecraft.ChatFormatting;
@@ -23,5 +24,8 @@ public class FlightAnchorItem extends AnimatedBlockItem<FlightAnchorItem>
         super.appendHoverText(stack, context, tooltip, p_41424_);
 
         tooltip.add(Component.translatable("tooltip.balancedflight.flight_anchor.rpm").withStyle(ChatFormatting.WHITE));
+
+        if (SableCompat.isLoaded())
+            tooltip.add(Component.translatable("tooltip.balancedflight.flight_anchor.sable").withStyle(ChatFormatting.GRAY));
     }
 }

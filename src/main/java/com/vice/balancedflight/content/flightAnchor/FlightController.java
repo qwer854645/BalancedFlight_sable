@@ -2,8 +2,9 @@ package com.vice.balancedflight.content.flightAnchor;
 
 import com.vice.balancedflight.content.flightAnchor.entity.FlightAnchorEntity;
 import com.vice.balancedflight.foundation.compat.AscendedRingCurio;
+import com.vice.balancedflight.foundation.compat.SableCompat;
 import com.vice.balancedflight.foundation.config.BalancedFlightConfig;
-import net.minecraft.core.Vec3i;
+import net.minecraft.core.BlockPos;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
@@ -61,20 +62,19 @@ public class FlightController
 
     private static boolean IsWithinFlightRange(Player player)
     {
-        if (player.level().dimension() != Level.OVERWORLD)
+        if (!SableCompat.allowsAnchorFlightInLevel(player))
             return false;
 
         double anchorDistanceMultiplier = BalancedFlightConfig.anchorDistanceMultiplier.get();
+        Level level = player.level();
+        Vec3 playerPos = player.position();
 
         return FlightAnchorEntity.ActiveAnchors
-                .entrySet()
+                .values()
                 .stream()
-                .anyMatch(anchor -> distSqr(anchor.getKey(), player.position()) < (anchorDistanceMultiplier * anchor.getValue().getSpeed()) * (anchorDistanceMultiplier * anchor.getValue().getSpeed()));
-    }
-
-    private static double distSqr(Vec3i vec, Vec3 other) {
-        double d1 = (double)vec.getX() - other.x;
-        double d3 = (double)vec.getZ() - other.z;
-        return d1 * d1 + d3 * d3;
+                .anyMatch(anchor -> {
+                    double radius = anchorDistanceMultiplier * anchor.getSpeed();
+                    return SableCompat.horizontalDistanceSqr(level, playerPos, anchor.getBlockPos()) < radius * radius;
+                });
     }
 }

@@ -1,8 +1,8 @@
 Create: Balanced Flight
 =========================
 
-This project is a fork of Vice's Create: Balanced Flight port, which itself
-descends from the original Create: Balanced Flight project.
+This project is a fork of themarneilx/BalancedFlight, which itself descends
+from the original Create: Balanced Flight project through intermediate forks.
 
 Upstream
 --------
@@ -14,18 +14,44 @@ Upstream
 Original and upstream copyright holders include DenisMasterHerobrine (2019),
 Txni and contributors (txnimc), and subsequent upstream maintainers.
 
+Copyright Holders
+-----------------
+The following copyright notices apply to this project and must be preserved in
+redistributions, as listed in `LICENSE`:
+
+- Copyright (c) 2019 DenisMasterHerobrine
+- Copyright (c) 2021-2024 Txni and contributors (https://github.com/txnimc/BalancedFlight)
+- Copyright (c) 2024 Sintinium
+- Copyright (c) 2025 skadlig (https://github.com/skadlig/BalancedFlight)
+- Copyright (c) 2025 Vice
+- Copyright (c) 2026 themarneilx (https://github.com/themarneilx/BalancedFlight)
+- Copyright (c) 2025-2026 xs_267
+
 Fork and Port History
 ---------------------
 - Create 6.0 update contributions: Sintinium
   https://www.curseforge.com/members/sintinium/projects
-- Minecraft 1.21.1 NeoForge port and prior fork maintenance: Vice
-  https://github.com/viceversagames/BalancedFlight
+- Create 6.0 fork maintenance: skadlig
+  https://github.com/skadlig/BalancedFlight
+- Minecraft 1.21.1 NeoForge port implementation: Vice
+  (codebase package namespace: com.vice.balancedflight)
+- Create 6.0.10 + NeoForge 1.21.1 fork maintenance: themarneilx
+  https://github.com/themarneilx/BalancedFlight
 - Current fork and further modifications: xs_267
   https://github.com/xs_267/BalancedFlight
 
-This repository is maintained independently from both the upstream project and
-Vice's fork. It may include gameplay, localization, and compatibility changes
-not present in either upstream or the previous fork.
+GitHub fork lineage:
+
+txnimc/BalancedFlight -> skadlig/BalancedFlight -> themarneilx/BalancedFlight -> xs_267/BalancedFlight
+
+This repository is maintained independently from upstream and intermediate
+forks. It may include gameplay, localization, and compatibility changes not
+present in earlier repositories.
+
+AI-Assisted Changes
+-------------------
+Parts of this fork were created or modified with AI assistance under the
+maintainership of xs_267. See `README.md` for details.
 
 Third-Party Components
 ----------------------

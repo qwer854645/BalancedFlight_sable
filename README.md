@@ -9,7 +9,11 @@ The mod adds two main items:
 
 ## Minecraft 1.21.1 NeoForge Port
 
-This branch ports the mod to:
+The Minecraft 1.21.1 NeoForge port in this codebase was implemented by Vice.
+This repository is xs_267's fork of themarneilx/BalancedFlight and may include
+further changes.
+
+Target versions for this branch:
 
 - Minecraft `1.21.1`
 - NeoForge `21.1.228`
@@ -30,19 +34,36 @@ The port updates the project from the old Minecraft 1.20.1 Forge setup to NeoFor
 - Create shaft connection support on the Flight Anchor's side faces
 - Curios ring slot support for the Ascended Flight Ring
 - Create-style tooltips, recipes, and Ponder integration
+- Optional [Sable](https://modrinth.com/mod/sable) compatibility: flight anchors work on physics structures and sub-levels, with `sable:mass` block properties
+
+## Optional Mod Compatibility
+
+### Sable
+
+When Sable is installed, flight anchors:
+
+- Enable flight in the overworld or inside Sable plot grids (not only the overworld)
+- Measure range using Sable sub-level-aware coordinates, so anchors on moving physics structures still cover nearby players
+- Register `data/balancedflight/physics_block_properties/flight_anchor.json` with a default mass for Sable physics
+
+Sable is an optional dependency; Balanced Flight works without it.
 
 ## Attribution
 
-This repository is a fork of Vice's port of Create: Balanced Flight.
+This repository is a fork of themarneilx/BalancedFlight.
 
+- Early upstream author: DenisMasterHerobrine (2019)
 - Original project by Txni: https://github.com/txnimc/BalancedFlight
 - Original CurseForge page: https://www.curseforge.com/minecraft/mc-mods/create-balanced-flight
 - Create 6.0 update contributions: Sintinium — https://www.curseforge.com/members/sintinium/projects
-- Previous fork author (Minecraft 1.21.1 NeoForge port): Vice — https://github.com/viceversagames/BalancedFlight
+- Create 6.0 fork maintenance: skadlig — https://github.com/skadlig/BalancedFlight
+- Minecraft 1.21.1 NeoForge port implementation: Vice (`com.vice.balancedflight`)
+- Immediate parent fork (Create 6.0.10 + NeoForge 1.21.1): themarneilx — https://github.com/themarneilx/BalancedFlight
 - Current fork maintainer: xs_267 — https://github.com/xs_267/BalancedFlight
 
-Early upstream copyright is attributed to DenisMasterHerobrine (2019). See
-`LICENSE` and `NOTICE` for the full copyright and attribution chain.
+GitHub fork lineage: `txnimc` → `skadlig` → `themarneilx` → `xs_267`
+
+See `LICENSE` and `NOTICE` for the full copyright and attribution chain.
 
 ## AI-Assisted Development
 
@@ -73,7 +94,7 @@ dependency notes.
 但需要在再分发时保留原始版权声明和 MIT 许可全文。
 
 本仓库为上游项目 Create: Balanced Flight 的 fork 与移植版本，并非上游官方仓库。
-本项目基于 Vice 维护的 NeoForge 1.21.1 移植版本继续分叉开发；Vice 为上一任 fork 作者，
+本项目直接基于 themarneilx/BalancedFlight 分叉开发；NeoForge 1.21.1 移植代码由 Vice 实现，
 xs_267 为当前维护者。
 再分发或二次开发时，请同时保留 `LICENSE` 与 `NOTICE` 中的上游及 fork 归属信息。
 

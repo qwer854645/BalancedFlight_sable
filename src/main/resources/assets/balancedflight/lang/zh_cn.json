@@ -7,6 +7,7 @@
   "tooltip.balancedflight.flight_anchor": "在 25 格半径内允许飞行。仅在主世界生效。",
   "tooltip.balancedflight.flight_anchor.rpm": "根据驱动它的转速（RPM）决定附近可飞行范围。",
   "tooltip.balancedflight.flight_anchor.overworld": "仅在主世界生效。",
+  "tooltip.balancedflight.flight_anchor.sable": "安装 Sable 时，可在物理结构与子层级中生效。",
 
   "tooltip.balancedflight.ascended_flight_ring": "密度极高的金戒指，却能在任何地方飞行。",
   "tooltip.balancedflight.ascended_flight_ring.detail": "密度极高的金戒指。尽管沉重，却能在任何地方飞行（天使戒指）。",
