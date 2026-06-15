@@ -1,5 +1,7 @@
 # Create: Balanced Flight (Sable Fork)
 
+[English](README_EN.md)
+
 基于 [themarneilx/BalancedFlight](https://github.com/themarneilx/BalancedFlight) 的 fork，面向 NeoForge 1.21.1 + Create 6.0.10，并针对本仓库做了以下改动。
 
 **仓库：** https://github.com/qwer854645/BalancedFlight_sable  
