@@ -10,8 +10,8 @@ The mod adds two main items:
 ## Minecraft 1.21.1 NeoForge Port
 
 The Minecraft 1.21.1 NeoForge port in this codebase was implemented by Vice.
-This repository is xs_267's fork of themarneilx/BalancedFlight and may include
-further changes.
+This repository is xs_267's fork of themarneilx/BalancedFlight, hosted at
+https://github.com/qwer854645/BalancedFlight_sable, and may include further changes.
 
 Target versions for this branch:
 
@@ -59,9 +59,9 @@ This repository is a fork of themarneilx/BalancedFlight.
 - Create 6.0 fork maintenance: skadlig — https://github.com/skadlig/BalancedFlight
 - Minecraft 1.21.1 NeoForge port implementation: Vice (`com.vice.balancedflight`)
 - Immediate parent fork (Create 6.0.10 + NeoForge 1.21.1): themarneilx — https://github.com/themarneilx/BalancedFlight
-- Current fork maintainer: xs_267 — https://github.com/xs_267/BalancedFlight
+- Current fork maintainer: xs_267 — https://github.com/qwer854645/BalancedFlight_sable
 
-GitHub fork lineage: `txnimc` → `skadlig` → `themarneilx` → `xs_267`
+GitHub fork lineage: `txnimc` → `skadlig` → `themarneilx` → `qwer854645/BalancedFlight_sable`
 
 See `LICENSE` and `NOTICE` for the full copyright and attribution chain.
 

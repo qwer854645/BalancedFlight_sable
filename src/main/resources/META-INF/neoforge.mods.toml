@@ -1,13 +1,13 @@
 modLoader = "javafml"
 loaderVersion = "${loader_version_range}"
 license = "${mod_license}"
-issueTrackerURL = "https://github.com/xs_267/BalancedFlight/issues"
+issueTrackerURL = "https://github.com/qwer854645/BalancedFlight_sable/issues"
 
 [[mods]]
 modId = "${mod_id}"
 version = "${mod_version}"
 displayName = "${mod_name}"
-displayURL = "https://github.com/xs_267/BalancedFlight"
+displayURL = "https://github.com/qwer854645/BalancedFlight_sable"
 authors = "${mod_authors}"
 description = '''${mod_description}'''
 

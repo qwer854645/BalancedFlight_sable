@@ -38,11 +38,11 @@ Fork and Port History
 - Create 6.0.10 + NeoForge 1.21.1 fork maintenance: themarneilx
   https://github.com/themarneilx/BalancedFlight
 - Current fork and further modifications: xs_267
-  https://github.com/xs_267/BalancedFlight
+  https://github.com/qwer854645/BalancedFlight_sable
 
 GitHub fork lineage:
 
-txnimc/BalancedFlight -> skadlig/BalancedFlight -> themarneilx/BalancedFlight -> xs_267/BalancedFlight
+txnimc/BalancedFlight -> skadlig/BalancedFlight -> themarneilx/BalancedFlight -> qwer854645/BalancedFlight_sable
 
 This repository is maintained independently from upstream and intermediate
 forks. It may include gameplay, localization, and compatibility changes not
