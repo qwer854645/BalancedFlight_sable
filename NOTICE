@@ -1,7 +1,8 @@
 Create: Balanced Flight
 =========================
 
-This project is a fork and port of Create: Balanced Flight.
+This project is a fork of Vice's Create: Balanced Flight port, which itself
+descends from the original Create: Balanced Flight project.
 
 Upstream
 --------
@@ -17,12 +18,14 @@ Fork and Port History
 ---------------------
 - Create 6.0 update contributions: Sintinium
   https://www.curseforge.com/members/sintinium/projects
-- Minecraft 1.21.1 NeoForge port and further modifications: xs_267
+- Minecraft 1.21.1 NeoForge port and prior fork maintenance: Vice
+  https://github.com/viceversagames/BalancedFlight
+- Current fork and further modifications: xs_267
   https://github.com/xs_267/BalancedFlight
 
-This fork is maintained independently from the upstream repository and may
-include gameplay, localization, and compatibility changes not present in
-upstream releases.
+This repository is maintained independently from both the upstream project and
+Vice's fork. It may include gameplay, localization, and compatibility changes
+not present in either upstream or the previous fork.
 
 Third-Party Components
 ----------------------

@@ -33,15 +33,27 @@ The port updates the project from the old Minecraft 1.20.1 Forge setup to NeoFor
 
 ## Attribution
 
-This repository is a fork and port of Create: Balanced Flight.
+This repository is a fork of Vice's port of Create: Balanced Flight.
 
 - Original project by Txni: https://github.com/txnimc/BalancedFlight
 - Original CurseForge page: https://www.curseforge.com/minecraft/mc-mods/create-balanced-flight
 - Create 6.0 update contributions: Sintinium — https://www.curseforge.com/members/sintinium/projects
-- Minecraft 1.21.1 NeoForge port: xs_267 — https://github.com/xs_267/BalancedFlight
+- Previous fork author (Minecraft 1.21.1 NeoForge port): Vice — https://github.com/viceversagames/BalancedFlight
+- Current fork maintainer: xs_267 — https://github.com/xs_267/BalancedFlight
 
 Early upstream copyright is attributed to DenisMasterHerobrine (2019). See
 `LICENSE` and `NOTICE` for the full copyright and attribution chain.
+
+## AI-Assisted Development
+
+Parts of this project were created and modified with AI assistance, including
+code changes, documentation, localization, and repository maintenance. Human
+review and testing remain the responsibility of the maintainer.
+
+### AI 辅助创作说明
+
+本项目的部分内容在 AI 辅助下完成，包括但不限于代码修改、文档撰写、语言包整理
+与仓库维护。最终修改与测试由维护者负责审核与确认。
 
 ## License
 
@@ -61,7 +73,9 @@ dependency notes.
 但需要在再分发时保留原始版权声明和 MIT 许可全文。
 
 本仓库为上游项目 Create: Balanced Flight 的 fork 与移植版本，并非上游官方仓库。
-再分发或二次开发时，请同时保留 `LICENSE` 与 `NOTICE` 中的上游归属信息。
+本项目基于 Vice 维护的 NeoForge 1.21.1 移植版本继续分叉开发；Vice 为上一任 fork 作者，
+xs_267 为当前维护者。
+再分发或二次开发时，请同时保留 `LICENSE` 与 `NOTICE` 中的上游及 fork 归属信息。
 
 ## Building
 
