@@ -1,0 +1,39 @@
+Create: Balanced Flight
+=========================
+
+This project is a fork and port of Create: Balanced Flight.
+
+Upstream
+--------
+- Project: Create: Balanced Flight
+- Repository: https://github.com/txnimc/BalancedFlight
+- CurseForge: https://www.curseforge.com/minecraft/mc-mods/create-balanced-flight
+- License: MIT License
+
+Original and upstream copyright holders include DenisMasterHerobrine (2019),
+Txni and contributors (txnimc), and subsequent upstream maintainers.
+
+Fork and Port History
+---------------------
+- Create 6.0 update contributions: Sintinium
+  https://www.curseforge.com/members/sintinium/projects
+- Minecraft 1.21.1 NeoForge port and further modifications: xs_267
+  https://github.com/xs_267/BalancedFlight
+
+This fork is maintained independently from the upstream repository and may
+include gameplay, localization, and compatibility changes not present in
+upstream releases.
+
+Third-Party Components
+----------------------
+This mod depends on third-party libraries and APIs that are distributed under
+their own licenses, including but not limited to:
+
+- NeoForge
+- Minecraft
+- Create
+- Curios API
+- GeckoLib
+
+Redistribution of this mod must comply with the MIT License above and with the
+license terms of all bundled or required dependencies.
