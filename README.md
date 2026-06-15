@@ -1,126 +1,64 @@
-# Create: Balanced Flight
+# Create: Balanced Flight (Sable Fork)
 
-Create: Balanced Flight is a Create addon that adds progression-friendly flight tools for survival play.
+基于 [themarneilx/BalancedFlight](https://github.com/themarneilx/BalancedFlight) 的 fork，面向 NeoForge 1.21.1 + Create 6.0.10，并针对本仓库做了以下改动。
 
-The mod adds two main items:
+**仓库：** https://github.com/qwer854645/BalancedFlight_sable  
+**下载：** [Releases](https://github.com/qwer854645/BalancedFlight_sable/releases)
 
-- Flight Anchor: a kinetic block powered by Create rotation. When it receives enough speed, it enables flight in a configurable radius and renders a beacon-style beam.
-- Ascended Flight Ring: a Curios-compatible ring item used by the flight system.
+## 本 fork 的修改
 
-## Minecraft 1.21.1 NeoForge Port
+### 1. 全面翻译键化
 
-The Minecraft 1.21.1 NeoForge port in this codebase was implemented by Vice.
-This repository is xs_267's fork of themarneilx/BalancedFlight, hosted at
-https://github.com/qwer854645/BalancedFlight_sable, and may include further changes.
+界面与说明文本改为使用翻译键，便于维护与本地化：
 
-Target versions for this branch:
+- 物品与方块 tooltip
+- Ponder 场景文本
+- 语言包：`en_us.json`、`zh_cn.json`
 
-- Minecraft `1.21.1`
-- NeoForge `21.1.228`
-- Create `6.0.10`
-- Flywheel `1.0.6`
-- Ponder `1.0.82`
-- Curios API `9.5.1+1.21.1`
-- GeckoLib `4.8.4`
+### 2. 移除鞘翅相关功能
 
-The port updates the project from the old Minecraft 1.20.1 Forge setup to NeoForge's 1.21.1 mod loading, event, data generation, network, config, Curios, and renderer APIs.
+精简为以**飞行锚 + 升华飞行戒指**为核心的创造模式飞行方案，已移除：
 
-## Features
+- 鞘翅起飞按键与输入处理
+- Elytra 相关 Mixin 与网络包
+- 无限烟花、鞘翅升华等配置项
 
-- Create-powered Flight Anchor block
-- Flight radius controlled by the anchor system
-- Beacon-style beam when the Flight Anchor is active
-- Animated GeckoLib block and item rendering
-- Create shaft connection support on the Flight Anchor's side faces
-- Curios ring slot support for the Ascended Flight Ring
-- Create-style tooltips, recipes, and Ponder integration
-- Optional [Sable](https://modrinth.com/mod/sable) compatibility: flight anchors work on physics structures and sub-levels, with `sable:mass` block properties
+保留飞行锚转速范围飞行，以及戒指提供的飞行能力。
 
-## Optional Mod Compatibility
+### 3. Sable 物理结构兼容（可选）
 
-### Sable
+安装 [Sable](https://modrinth.com/mod/sable) 时：
 
-When Sable is installed, flight anchors:
+- 飞行锚可在主世界或 Sable plot grid 内生效
+- 距离计算支持子层级坐标，适配移动物理结构上的锚点
+- 提供 `data/balancedflight/physics_block_properties/flight_anchor.json`（默认 `sable:mass: 4.0`）
 
-- Enable flight in the overworld or inside Sable plot grids (not only the overworld)
-- Measure range using Sable sub-level-aware coordinates, so anchors on moving physics structures still cover nearby players
-- Register `data/balancedflight/physics_block_properties/flight_anchor.json` with a default mass for Sable physics
+未安装 Sable 时行为与原版一致，Sable 为可选依赖。
 
-Sable is an optional dependency; Balanced Flight works without it.
+## 环境要求
 
-## Attribution
+| 组件 | 版本 |
+|------|------|
+| Minecraft | 1.21.1 |
+| NeoForge | 21.1.228 |
+| Create | 6.0.10 |
+| Curios API | 9.5.1+1.21.1 |
+| GeckoLib | 4.8.4 |
+| Sable | 1.2.0+（可选） |
 
-This repository is a fork of themarneilx/BalancedFlight.
+## 构建
 
-- Early upstream author: DenisMasterHerobrine (2019)
-- Original project by Txni: https://github.com/txnimc/BalancedFlight
-- Original CurseForge page: https://www.curseforge.com/minecraft/mc-mods/create-balanced-flight
-- Create 6.0 update contributions: Sintinium — https://www.curseforge.com/members/sintinium/projects
-- Create 6.0 fork maintenance: skadlig — https://github.com/skadlig/BalancedFlight
-- Minecraft 1.21.1 NeoForge port implementation: Vice (`com.vice.balancedflight`)
-- Immediate parent fork (Create 6.0.10 + NeoForge 1.21.1): themarneilx — https://github.com/themarneilx/BalancedFlight
-- Current fork maintainer: xs_267 — https://github.com/qwer854645/BalancedFlight_sable
+需要 Java 21：
 
-GitHub fork lineage: `txnimc` → `skadlig` → `themarneilx` → `qwer854645/BalancedFlight_sable`
-
-See `LICENSE` and `NOTICE` for the full copyright and attribution chain.
-
-## AI-Assisted Development
-
-Parts of this project were created and modified with AI assistance, including
-code changes, documentation, localization, and repository maintenance. Human
-review and testing remain the responsibility of the maintainer.
-
-### AI 辅助创作说明
-
-本项目的部分内容在 AI 辅助下完成，包括但不限于代码修改、文档撰写、语言包整理
-与仓库维护。最终修改与测试由维护者负责审核与确认。
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
-You may use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of this software, provided that the copyright notice and permission
-notice in `LICENSE` are included in all copies or substantial portions of the
-software.
-
-See also `NOTICE` for upstream attribution, fork history, and third-party
-dependency notes.
-
-### 开源协议（中文说明）
-
-本项目采用 MIT 许可证发布。你可以自由使用、修改、分发本软件，包括用于商业用途，
-但需要在再分发时保留原始版权声明和 MIT 许可全文。
-
-本仓库为上游项目 Create: Balanced Flight 的 fork 与移植版本，并非上游官方仓库。
-本项目直接基于 themarneilx/BalancedFlight 分叉开发；NeoForge 1.21.1 移植代码由 Vice 实现，
-xs_267 为当前维护者。
-再分发或二次开发时，请同时保留 `LICENSE` 与 `NOTICE` 中的上游及 fork 归属信息。
-
-## Building
-
-Use Java 21.
-
-```bash
-./gradlew build
+```powershell
+$env:JAVA_HOME = "C:\Program Files\Java\jdk-21.0.10"
+.\gradlew build
 ```
 
-The compiled jar is written to:
+产物位于 `build/libs/`。
 
-```text
-build/libs/
-```
+## 归属与许可
 
-For this porting workspace, the known-good build command is:
+本项目为上游 Create: Balanced Flight 的非官方 fork，MIT 许可。完整版权链见 `LICENSE` 与 `NOTICE`。
 
-```bash
-JAVA_HOME=/tmp/temurin-jdk21 PATH=/tmp/temurin-jdk21/bin:$PATH ./gradlew build
-```
-
-## Development Notes
-
-- The Flight Anchor uses GeckoLib for the animated block model and a Create-safe renderer for shaft partials.
-- The Flight Anchor advertises shafts on its side faces and uses the matching side-axis rotation so it connects naturally with Create shafts.
-- Curios data is provided under `data/balancedflight/curios` and item tags under `data/curios/tags/item`.
-- Generated data is written under `src/generated/resources`.
+部分修改在 AI 辅助下完成，由维护者审核。
