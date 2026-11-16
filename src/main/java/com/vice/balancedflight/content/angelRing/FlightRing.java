@@ -21,7 +21,7 @@ public class FlightRing extends Item implements ICurioItem {
 
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
-        return !AscendedRingCurio.HasAscendedRing(slotContext.entity());
+        return AscendedRingCurio.canEquipRing(slotContext);
     }
 
     @Override
