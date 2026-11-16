@@ -24,6 +24,11 @@ public class FlightController
         if (player.level().isClientSide)
             return;
 
+        if (!FlightSafety.shouldGrantFlight(player.isAlive(), player.isCreative(), player.isSpectator())) {
+            stopFlying(player);
+            return;
+        }
+
         if (!canCreativeFly(player))
         {
             boolean wasFlying = player.getAbilities().flying;
@@ -39,7 +44,8 @@ public class FlightController
     }
 
     public static void startFlying(Player player) {
-        if (player.level().isClientSide)
+        if (player.level().isClientSide
+                || !FlightSafety.shouldGrantFlight(player.isAlive(), player.isCreative(), player.isSpectator()))
             return;
 
         var attribute = player.getAttribute(NeoForgeMod.CREATIVE_FLIGHT);

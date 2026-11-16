@@ -4,6 +4,12 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class FlightSafetyTest {
+    @Test void onlyLivingSurvivalOrAdventurePlayersNeedAModifier() {
+        assertTrue(FlightSafety.shouldGrantFlight(true, false, false));
+        assertFalse(FlightSafety.shouldGrantFlight(false, false, false));
+        assertFalse(FlightSafety.shouldGrantFlight(true, true, false));
+        assertFalse(FlightSafety.shouldGrantFlight(true, false, true));
+    }
     @Test void normalJumpingPrefersRingFlightOverElytra() {
         assertTrue(FlightSafety.blocksElytraTakeoff(true, false, true));
     }
