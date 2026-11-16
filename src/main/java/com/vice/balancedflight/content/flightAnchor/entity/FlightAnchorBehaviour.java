@@ -41,7 +41,7 @@ public class FlightAnchorBehaviour extends BlockEntityBehaviour
 
     public void setActive(boolean active)
     {
-        if (getWorld() instanceof PonderLevel)
+        if (getWorld().isClientSide || getWorld() instanceof PonderLevel)
             return;
         
         GlobalPos key = GlobalPos.of(getWorld().dimension(), getPos());

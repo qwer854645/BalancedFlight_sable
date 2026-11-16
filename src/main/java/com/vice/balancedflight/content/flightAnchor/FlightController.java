@@ -15,6 +15,9 @@ public class FlightController
 {
     public static void tick(Player player)
     {
+        if (player.level().isClientSide)
+            return;
+
         if (!canCreativeFly(player))
         {
             if (!player.isCreative() && player.getAbilities().mayfly)
