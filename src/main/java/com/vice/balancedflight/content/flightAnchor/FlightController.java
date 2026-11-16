@@ -49,6 +49,15 @@ public class FlightController
         }
     }
 
+    public static boolean shouldPreventElytraTakeoff(Player player) {
+        var attribute = player.getAttribute(NeoForgeMod.CREATIVE_FLIGHT);
+        boolean ringFlight = !player.isCreative() && !player.isSpectator() && player.mayFly()
+                && attribute != null && attribute.hasModifier(FLIGHT_MODIFIER)
+                && AscendedRingCurio.HasAscendedRing(player);
+        return FlightSafety.blocksElytraTakeoff(ringFlight, player.isShiftKeyDown(),
+                BalancedFlightConfig.preventAccidentalElytraFlight.get());
+    }
+
     public static boolean stopFlying(Player player) {
         if (player.level().isClientSide)
             return false;

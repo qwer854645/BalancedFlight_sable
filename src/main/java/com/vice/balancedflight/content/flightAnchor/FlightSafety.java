@@ -4,6 +4,10 @@ package com.vice.balancedflight.content.flightAnchor;
 public final class FlightSafety {
     private FlightSafety() {}
 
+    public static boolean blocksElytraTakeoff(boolean ringFlight, boolean sneaking, boolean enabled) {
+        return enabled && ringFlight && !sneaking;
+    }
+
     public static boolean needsSlowFalling(boolean wasFlying, boolean onGround,
             boolean gliding, boolean alive, boolean alreadyProtected) {
         return wasFlying && !onGround && !gliding && alive && !alreadyProtected;

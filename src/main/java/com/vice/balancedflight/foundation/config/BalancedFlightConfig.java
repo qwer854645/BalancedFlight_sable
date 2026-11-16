@@ -13,6 +13,7 @@ public class BalancedFlightConfig
 
     public static ConfigValue<Boolean> CreativeAnchor;
     public static ConfigValue<Boolean> CreativeAscended;
+    public static ConfigValue<Boolean> preventAccidentalElytraFlight;
 
     public static ConfigValue<Double> anchorDistanceMultiplier;
     public static ConfigValue<Integer> anchorStress;
@@ -25,6 +26,7 @@ public class BalancedFlightConfig
             CreativeAscended = b.define("Ascended Ring Gives Unlimited Creative Flight (will fall back to Basic tier inside range)", true);
 
             CreativeAnchor = b.define("Flight Anchor Gives Creative Flight", true);
+            preventAccidentalElytraFlight = b.define("Prevent Accidental Elytra Takeoff With Ring (sneak to glide)", true);
         });
 
         builder.Block("Balancing Config", b -> {

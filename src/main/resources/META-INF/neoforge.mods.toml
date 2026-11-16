@@ -12,6 +12,9 @@ displayURL = "https://github.com/qwer854645/BalancedFlight_sable"
 authors = "${mod_authors}"
 description = '''${mod_description}'''
 
+[[mixins]]
+config = "balancedflight.mixins.json"
+
 [[dependencies.${mod_id}]]
     modId = "neoforge"
     type = "required"

@@ -4,6 +4,18 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class FlightSafetyTest {
+    @Test void normalJumpingPrefersRingFlightOverElytra() {
+        assertTrue(FlightSafety.blocksElytraTakeoff(true, false, true));
+    }
+
+    @Test void intentionalGlidingAndDisabledProtectionRemainAvailable() {
+        assertFalse(FlightSafety.blocksElytraTakeoff(true, true, true));
+        assertFalse(FlightSafety.blocksElytraTakeoff(true, false, false));
+    }
+
+    @Test void ordinaryElytraAndOtherFlightSourcesRemainUnaffected() {
+        assertFalse(FlightSafety.blocksElytraTakeoff(false, false, true));
+    }
     @Test void protectsActualAirborneFlightLoss() {
         assertTrue(FlightSafety.needsSlowFalling(true, false, false, true, false));
     }
