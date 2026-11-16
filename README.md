@@ -37,6 +37,17 @@ When [Sable](https://modrinth.com/mod/sable) is installed:
 
 Without Sable, behavior matches the base mod. Sable is an optional dependency.
 
+## Flight behavior fixes (2.5.0.3)
+
+- Slow Falling protects actual airborne flight loss only; walking out of anchor range no longer grants it. Other sources' potion effects are preserved.
+- Ring flight takes priority over accidental Elytra takeoff. Hold Sneak while starting Elytra flight to glide intentionally. The preference can be disabled in `config/balanced_flight.toml`; keep client and server settings consistent.
+- Dead, Creative, and Spectator players do not retain this mod's flight modifier.
+- Ring abilities require an active functional Curios slot. Same-slot ring replacement is supported.
+- Anchor fall protection checks actual anchor range. Vanilla flight fall immunity remains unchanged.
+- No Haste or mining-speed changes are applied; vanilla airborne mining penalties remain.
+
+See `CHANGELOG.md` for bilingual release notes.
+
 ## Requirements
 
 | Component | Version |
