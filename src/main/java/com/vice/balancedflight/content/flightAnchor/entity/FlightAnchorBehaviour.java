@@ -7,6 +7,7 @@ import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour
 import net.createmod.catnip.animation.AnimationTickHolder;
 import net.createmod.ponder.api.level.PonderLevel;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.GlobalPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -43,17 +44,18 @@ public class FlightAnchorBehaviour extends BlockEntityBehaviour
         if (getWorld() instanceof PonderLevel)
             return;
         
+        GlobalPos key = GlobalPos.of(getWorld().dimension(), getPos());
         if (!active)
         {
-            FlightAnchorEntity.ActiveAnchors.remove(getPos());
+            FlightAnchorEntity.ActiveAnchors.remove(key, blockEntity);
             playSound(getWorld(), getPos(), SoundEvents.BEACON_DEACTIVATE);
             return;
         }
 
-        if (FlightAnchorEntity.ActiveAnchors.containsKey(getPos()))
+        if (FlightAnchorEntity.ActiveAnchors.containsKey(key))
             return;
 
-        FlightAnchorEntity.ActiveAnchors.put(getPos(), (FlightAnchorEntity) blockEntity);
+        FlightAnchorEntity.ActiveAnchors.put(key, (FlightAnchorEntity) blockEntity);
         playSound(getWorld(), getPos(), SoundEvents.BEACON_ACTIVATE);
     }
 

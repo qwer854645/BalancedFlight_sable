@@ -10,6 +10,7 @@ import com.vice.balancedflight.content.flightAnchor.FlightAnchorBlock;
 import com.vice.balancedflight.AllGeckoRenderers;
 import com.vice.balancedflight.foundation.config.BalancedFlightConfig;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.GlobalPos;
 import net.minecraft.world.level.block.entity.BeaconBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -26,7 +27,7 @@ import java.util.Map;
 
 public class FlightAnchorEntity extends KineticBlockEntity implements GeoBlockEntity
 {
-    public static Map<BlockPos, FlightAnchorEntity> ActiveAnchors = new HashMap<>();
+    public static final Map<GlobalPos, FlightAnchorEntity> ActiveAnchors = new HashMap<>();
 
     List<BeaconBlockEntity.BeaconBeamSection> beamSections = Lists.newArrayList();
     List<BeaconBlockEntity.BeaconBeamSection> checkingBeamSections = Lists.newArrayList();

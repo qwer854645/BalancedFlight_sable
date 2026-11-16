@@ -72,6 +72,7 @@ public class FlightController
         return FlightAnchorEntity.ActiveAnchors
                 .values()
                 .stream()
+                .filter(anchor -> anchor.getLevel() == level && !anchor.isRemoved())
                 .anyMatch(anchor -> {
                     double radius = anchorDistanceMultiplier * anchor.getSpeed();
                     return SableCompat.horizontalDistanceSqr(level, playerPos, anchor.getBlockPos()) < radius * radius;
