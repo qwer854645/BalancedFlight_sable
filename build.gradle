@@ -140,8 +140,14 @@ dependencies {
     annotationProcessor "org.projectlombok:lombok:${lombok_version}"
     testCompileOnly "org.projectlombok:lombok:${lombok_version}"
     testAnnotationProcessor "org.projectlombok:lombok:${lombok_version}"
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.11.4'
 
     runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
+}
+
+tasks.named('test', Test) {
+    useJUnitPlatform()
 }
 
 jar {

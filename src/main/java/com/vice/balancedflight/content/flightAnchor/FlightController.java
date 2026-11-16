@@ -26,19 +26,16 @@ public class FlightController
 
         if (!canCreativeFly(player))
         {
-            if (stopFlying(player))
+            boolean wasFlying = player.getAbilities().flying;
+            if (stopFlying(player) && FlightSafety.needsSlowFalling(wasFlying, player.onGround(),
+                    player.isFallFlying(), player.isAlive(), player.hasEffect(MobEffects.SLOW_FALLING)))
             {
                 player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 200));
             }
             return;
         }
 
-        boolean couldFly = player.mayFly();
         startFlying(player);
-        if (!couldFly && player.mayFly()) {
-            if (player.hasEffect(MobEffects.SLOW_FALLING))
-                player.removeEffect(MobEffects.SLOW_FALLING);
-        }
     }
 
     public static void startFlying(Player player) {
