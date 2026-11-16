@@ -1,10 +1,13 @@
 package com.vice.balancedflight.content.flightAnchor;
 
 import com.vice.balancedflight.content.flightAnchor.entity.FlightAnchorEntity;
+import com.vice.balancedflight.BalancedFlight;
 import com.vice.balancedflight.foundation.compat.AscendedRingCurio;
 import com.vice.balancedflight.foundation.compat.SableCompat;
 import com.vice.balancedflight.foundation.config.BalancedFlightConfig;
-import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.neoforged.neoforge.common.NeoForgeMod;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
@@ -13,6 +16,9 @@ import net.minecraft.world.phys.Vec3;
 
 public class FlightController
 {
+    private static final ResourceLocation FLIGHT_MODIFIER = ResourceLocation.fromNamespaceAndPath(
+            BalancedFlight.MODID, "creative_flight");
+
     public static void tick(Player player)
     {
         if (player.level().isClientSide)
@@ -20,34 +26,48 @@ public class FlightController
 
         if (!canCreativeFly(player))
         {
-            if (!player.isCreative() && player.getAbilities().mayfly)
+            if (stopFlying(player))
             {
-                stopFlying(player);
                 player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 200));
             }
             return;
         }
 
-        if (!player.getAbilities().mayfly) {
-            startFlying(player);
+        boolean couldFly = player.mayFly();
+        startFlying(player);
+        if (!couldFly && player.mayFly()) {
             if (player.hasEffect(MobEffects.SLOW_FALLING))
                 player.removeEffect(MobEffects.SLOW_FALLING);
         }
     }
 
     public static void startFlying(Player player) {
-        if (!player.isCreative() && !player.isSpectator()) {
-            player.getAbilities().mayfly = true;
-            player.onUpdateAbilities();
+        if (player.level().isClientSide)
+            return;
+
+        var attribute = player.getAttribute(NeoForgeMod.CREATIVE_FLIGHT);
+        if (attribute != null && !attribute.hasModifier(FLIGHT_MODIFIER)) {
+            attribute.addTransientModifier(new AttributeModifier(FLIGHT_MODIFIER, 1,
+                    AttributeModifier.Operation.ADD_VALUE));
         }
     }
 
-    public static void stopFlying(Player player) {
-        if (!player.isCreative() && !player.isSpectator()) {
+    public static boolean stopFlying(Player player) {
+        if (player.level().isClientSide)
+            return false;
+
+        var attribute = player.getAttribute(NeoForgeMod.CREATIVE_FLIGHT);
+        if (attribute == null || !attribute.hasModifier(FLIGHT_MODIFIER))
+            return false;
+
+        boolean couldFly = player.mayFly();
+        attribute.removeModifier(FLIGHT_MODIFIER);
+        if (couldFly && !player.mayFly()) {
             player.getAbilities().flying = false;
-            player.getAbilities().mayfly = false;
             player.onUpdateAbilities();
+            return true;
         }
+        return false;
     }
 
     public static boolean canCreativeFly(Player player)
