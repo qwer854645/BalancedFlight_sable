@@ -65,7 +65,8 @@ public final class SableCompat
             return false;
 
         try {
-            Object result = IS_IN_PLOT_GRID.invoke(COMPANION, level, pos.getX(), pos.getZ());
+            // The integer overload takes chunk coordinates, including for negative positions.
+            Object result = IS_IN_PLOT_GRID.invoke(COMPANION, level, pos.getX() >> 4, pos.getZ() >> 4);
             return result instanceof Boolean bool && bool;
         } catch (ReflectiveOperationException exception) {
             BalancedFlightCompat.LOGGER.warn("Failed to query Sable plot grid", exception);
