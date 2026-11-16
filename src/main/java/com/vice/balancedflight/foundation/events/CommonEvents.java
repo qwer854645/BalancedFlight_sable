@@ -5,13 +5,12 @@ import com.vice.balancedflight.content.flightAnchor.entity.FlightAnchorEntity;
 import com.vice.balancedflight.foundation.compat.AscendedRingCurio;
 import com.vice.balancedflight.foundation.config.BalancedFlightConfig;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.event.level.LevelEvent;
-
-import java.util.Objects;
 
 @EventBusSubscriber
 public class CommonEvents
@@ -31,12 +30,12 @@ public class CommonEvents
 
     @SubscribeEvent
     public static void onLivingHurt(LivingIncomingDamageEvent event) {
-        if (Objects.equals(event.getSource().getMsgId(), "fall")) {
+        if (event.getSource().is(DamageTypes.FALL)) {
             if (event.getEntity() instanceof Player player) {
                 if (AscendedRingCurio.HasAscendedRing(player) && BalancedFlightConfig.disableFallDamageWhenWearingRing.get())
                     event.setCanceled(true);
 
-                if (BalancedFlightConfig.disableFallDamageNearAnchor.get() && FlightController.canCreativeFly(player))
+                if (BalancedFlightConfig.disableFallDamageNearAnchor.get() && FlightController.isWithinFlightRange(player))
                     event.setCanceled(true);
             }
         }

@@ -89,13 +89,13 @@ public class FlightController
             if (BalancedFlightConfig.CreativeAscended.get())
                 return true;
 
-            return BalancedFlightConfig.CreativeAnchor.get() && IsWithinFlightRange(player);
+            return BalancedFlightConfig.CreativeAnchor.get() && isWithinFlightRange(player);
         }
 
-        return BalancedFlightConfig.CreativeAnchor.get() && IsWithinFlightRange(player);
+        return BalancedFlightConfig.CreativeAnchor.get() && isWithinFlightRange(player);
     }
 
-    private static boolean IsWithinFlightRange(Player player)
+    public static boolean isWithinFlightRange(Player player)
     {
         if (!SableCompat.allowsAnchorFlightInLevel(player))
             return false;
